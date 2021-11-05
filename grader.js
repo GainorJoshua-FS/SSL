@@ -27,8 +27,11 @@ class Grader{
                     else{
                         console.log(name + ", you got an F in" + assignment + ". See me after class.")
                     }
+                    rl.close()
                 })
+                rl.close()
             })
+            rl.close()
         })
     }
 }

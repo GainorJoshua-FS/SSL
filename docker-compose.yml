@@ -16,6 +16,8 @@ services:
     node:
         container_name: node
         image: node:latest
+        ports:
+            - 8000:8000
         volumes:
             - ./:/var/www/html
         tty: true
