@@ -1,0 +1,23 @@
+<h1>Hello World!</h1>
+
+
+<%- include("partials/nav") %>
+
+<% if (user) { %>
+    <p>Condition is true!</p>
+<% } else { %>
+    <p>Condition is false!</p>
+<% } %>
+
+<ul>
+    <% for(var i = 0; i < people.length; i++) { %>
+        <li><%= people[i] %> </li>
+    <% } %>
+</ul>
+
+
+<!-- <% if (typeof(errors)!= "undefined") { %>
+    <p>Condition is true!</p>
+<% } else { %>
+    <p>Condition is false!</p>
+<% } %> -->
