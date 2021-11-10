@@ -47,7 +47,7 @@
     border-radius: 10px;
     padding: 11px;
     font-size: 12px;">
-        <form action="/login" method="POST">
+        <form action="/register" method="POST">
             <input style="width: 90%;" type="text" name="fName" placeholder="First Name">
             <input style="width: 90%;" type="text" name="lName" placeholder="Last Name">
             <input style="width: 90%;" type="text" name="address" placeholder="Address">
@@ -81,9 +81,29 @@
             <input type="checkbox" name="consent">
             <label style="color: white;" for="consent">I Agree to the Terms</label>
             <textarea name="bio" cols="30" rows="5" placeholder="Bio"></textarea>
-            <!-- <input type="text" name="email" placeholder="Email">
-            <input type="text" name="password" placeholder="password"> -->
+            
             <input type="submit">
         </form>
     </div>
+
+    <div style="z-index:1;
+    display: block;
+    text-align: left;
+    background-color: #333a40;
+    margin-right: 0px;
+    padding-right: 20px;
+    position: absolute;
+    color: gray;
+    width: 250px;
+    margin-top: 4px;
+    padding-top: 5px;
+    right: 0px;
+    border-radius: 10px;
+    padding: 11px;
+    font-size: 12px;">
+        <form action="/login" method="POST">
+            <input type="text" name="email" placeholder="Email">
+            <input type="text" name="password" placeholder="password">
+            <input type="submit">
+        </form>
 </nav>

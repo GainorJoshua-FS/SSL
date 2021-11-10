@@ -59,11 +59,10 @@ router.get("/themes", (req,res)=>{
     res.render("themes",{pagename:"Themes"})
 })
 
-router.post("/login", (req,res)=>{
-    console.log(req.body.email)
-    console.log(req.body.password)
-    console.log("HAHAHAH: " + req.body.male)
-    console.log("BLAH BLAH BLAH: " + req.body.consent)
+router.post("/register", (req,res)=>{
+    
+    console.log("Male Radio Btn: " + req.body.male)
+    console.log("Consent check: " + req.body.consent)
     var errors = [];
     var success = [];
 
@@ -97,28 +96,42 @@ router.post("/login", (req,res)=>{
     if(req.body.bio == ""){
         errors.push("Please enter a bio")
     }
-    if(req.body.fName !== "" && req.body.lName !== "" && req.body.address !== "" && req.body.city !== "" && req.body.state !== "" && req.body.zip != "" && req.body.age !== "0" && (req.body.male !== "undefined" && req.body.female !== "undefined" && req.body.other !== "undefined") && req.body.consent !== "undefined" && req.body.bio !== ""){
-        success.push("Success!")
+    // if(req.body.fName !== "" && req.body.lName !== "" && req.body.address !== "" && req.body.city !== "" && req.body.state !== "" && req.body.zip != "" && req.body.age !== "0" && (req.body.male !== "undefined" && req.body.female !== "undefined" && req.body.other !== "undefined") && req.body.consent !== "undefined" && req.body.bio !== ""){
+    //     success.push("Registration Success!")
+    // }
+    if(errors.length == 0){
+        success.push("Registration Success!")
     }
 
-    
-    
-
-    // if(req.body.email == ""){
-    //     errors.push("Email is Required")
-    // }
-    // if(req.body.password == ""){
-    //     errors.push("Password is Required")
-    // }
-
-    // if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(req.body.email)){
-    //     errors.push("Email is not valid")
-    // }
-    // if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(req.body.password)){
-    //     errors.push("Password is not valid")
-    // }
-
     res.render("index",{pagename:"Home", errors, success})
+})
+
+router.post("/login", (req,res)=>{
+    console.log(req.body.email)
+    console.log(req.body.password)
+
+    var errors = [];
+    var success = [];
+
+    if(req.body.email == ""){
+        errors.push("Email is Required")
+    }
+    if(req.body.password == ""){
+        errors.push("Password is Required")
+    }
+
+    if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(req.body.email)){
+        errors.push("Email is not valid")
+    }
+    if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(req.body.password)){
+        errors.push("Password is not valid")
+    }
+
+    if(errors.length == 0){
+        success.push("Login Success")
+    }
+
+    res.render("index", {pagename:"Home", errors, success})
 })
 
 //prefix
