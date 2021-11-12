@@ -59,6 +59,10 @@ router.get("/themes", (req,res)=>{
     res.render("themes",{pagename:"Themes"})
 })
 
+router.get("/profile", (req,res)=>{
+    res.render("profile",{pagename:"Profile"})
+})
+
 router.post("/register", (req,res)=>{
     
     console.log("Male Radio Btn: " + req.body.male)
@@ -102,8 +106,10 @@ router.post("/register", (req,res)=>{
     if(errors.length == 0){
         success.push("Registration Success!")
     }
+    else{
+        res.render("index",{pagename:"Home", errors, success})
+    }
 
-    res.render("index",{pagename:"Home", errors, success})
 })
 
 router.post("/login", (req,res)=>{
@@ -128,10 +134,14 @@ router.post("/login", (req,res)=>{
     }
 
     if(errors.length == 0){
-        success.push("Login Success")
+        req.session.isLoggedIn = true;
+        res.render("profile", {pagename:"Profile"})
+        res.send("Logged in!")
+    }else{
+        req.session.isLoggedIn = false;
+        res.render("index", {pagename:"Home", errors, success})
     }
 
-    res.render("index", {pagename:"Home", errors, success})
 })
 
 //prefix
