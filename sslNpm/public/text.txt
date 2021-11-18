@@ -5,3 +5,20 @@ mv ~/Downloads/SSL.pem ~/.ssh/SSL.pem
 
 chmod 400 ~/.ssh/SSL.pem
 ➜  ~ ssh -i ~/.ssh/SSL.pem centos@ec2-3-21-240-124.us-east-2.compute.amazonaws.com
+
+sudo yum install vim
+vim app.js
+i
+paste code
+esc
+shift :
+wq enter
+npm init -y
+
+npm install --save express request
+node app.js
+
+==
+
+
+

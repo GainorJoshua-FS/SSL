@@ -1,6 +1,6 @@
 var http = require('http'); //change htt to http
 var myname = function(){ //Fixed spelling error in function
-    console.log("Here is my IP address");
+    return "Here is my IP address";
 }
 
 async function callHttpbin() { //added n at the end to match the call later AND made it an async funtion
@@ -23,7 +23,7 @@ async function callHttpbin() { //added n at the end to match the call later AND 
         });
         
         let result = await promise;
-        return result; //added return
+        return result; //added return --
     }
 executeAsyncTask()//Added a function call
 

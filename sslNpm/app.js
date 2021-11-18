@@ -126,10 +126,17 @@ router.post("/login", (req,res)=>{
         errors.push("Password is Required")
     }
 
-    if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(req.body.email)){
+    // if(!/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(req.body.email)){
+    //     errors.push("Email is not valid")
+    // }
+    // if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(req.body.password)){
+    //     errors.push("Password is not valid")
+    // }
+
+    if(req.body.email !== "Mike@aol.com"){
         errors.push("Email is not valid")
     }
-    if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(req.body.password)){
+    if(req.body.password !== "abc123"){
         errors.push("Password is not valid")
     }
 
